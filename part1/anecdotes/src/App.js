@@ -30,8 +30,9 @@ const App = () => {
 
   //create new array of 0s from the amount of anecdotes
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
-  
-  const [mostVotes, setMostVotes] = useState(0)
+
+
+  const [highestVotes, setHighestVotes] = useState(0)
 
   //get a random number from the amount of anecdotes
   const getRandomNumber = () => Math.floor(Math.random() * anecdotes.length)
@@ -50,22 +51,23 @@ const App = () => {
     const copy = {...votes}
     copy[selected] += 1;
     setVotes(copy);
+    high();
   }
 
-
-  const getMostVoted = () => {    
-    const mostVoted = Math.max(votes)
-    console.log(mostVoted)
-    setMostVotes(mostVoted);
+  const high = () => {
+    const copy = {...votes};
+    var max = Math.max.apply(Math, copy);
+    console.log(max)
+    setHighestVotes(max);
   }
+  
 
   return (
     <div>
       <Anecdote title={"Anecdote of the day"} anecdote={anecdotes[selected]} voteAmount={votes[selected]} />
       <Button handleClick={upVote} text="vote" />
-      <Button handleClick={getAnecdote} text="random anecdote" />
-      <Button handleClick={getMostVoted} text="most voted" />
-      <Anecdote title={"Anecdote with the most votes"} anecdote={anecdotes[mostVotes]} voteAmount={votes[mostVotes]} />
+      <Button handleClick={getAnecdote} text="random anecdote" /> 
+      <Anecdote title={"Anecdote with the most votes"} anecdote={anecdotes[highestVotes]} voteAmount={highestVotes} />
     </div>
   )
 }
