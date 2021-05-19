@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    color: rgb(3, 63, 192);
+  }
+
+button {
+    cursor: pointer;
+    padding: 3px 8px;
+    background-color: rgb(238, 238, 238);
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: rgb(221, 220, 220);
+}
+
+
+.person {
+    list-style-type:none;
+    color: rgb(64, 105, 71);
+    padding-top: 3px;
+    font-size: 16px;
+}
+
+.newform {
+    width: 250px;
+}
+
+.error {
+    width: 450px;
+    color: rgb(27, 129, 98);
+    background: rgb(164, 197, 187);
+    font-size: 20px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
