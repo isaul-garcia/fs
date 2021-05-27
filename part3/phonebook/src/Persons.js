@@ -1,22 +1,22 @@
 const Person = ({person, remove}) => {
     return (
-        <li className='person'>
+        <div className='person'>
           <div><button onClick={() => {
             const id = person.id
             const name = person.name
             remove(id, name)}}>delete</button> {person.name} {person.number}
           </div>
-        </li>
+        </div>
     )
   }
   
-  const Persons = ({contacts, removeContact}) => {
+  const Persons = ({persons, removePerson}) => {
     return (
-      <ul>
-        {contacts.map(person => 
-          <Person key={person.id} person={person} remove={removeContact} />
+      <>
+        {persons.map(person => 
+          <Person key={person.id} person={person} remove={removePerson} />
         )}
-      </ul>
+      </>
     )
   }
 

@@ -1,4 +1,4 @@
-const NewContact = ({newName, setNewName, newNumber, setNewNumber, addContact}) => {
+const NewPerson = ({newName, setNewName, newNumber, setNewNumber, addPerson}) => {
     const handleNameChange = (event) => {
       setNewName(event.target.value)
     }
@@ -8,11 +8,11 @@ const NewContact = ({newName, setNewName, newNumber, setNewNumber, addContact}) 
   
     return (
       <>
-        <form className='newform' onSubmit={addContact}>
-          <div>
+        <form className='newform' onSubmit={addPerson}>
+          <div className='inputs'>
             name: <input value={newName} onChange={handleNameChange} />
           </div>
-          <div>
+          <div className='inputs'>
             number: <input value={newNumber} onChange={handleNumberChange} />
           </div>
           <div>
@@ -23,4 +23,4 @@ const NewContact = ({newName, setNewName, newNumber, setNewNumber, addContact}) 
     )
   }
 
-  export default NewContact;
+  export default NewPerson;

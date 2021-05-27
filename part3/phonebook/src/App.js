@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Persons from './Persons'
 import Search from './Search'
-import NewContact from './NewContact'
+import NewPerson from './NewPerson'
 import Notification from './Notification'
-import contactService from './services/contacts'
+import personService from './services/persons'
 
 const App = () => {
   const [ persons, setPersons ] = useState([])
@@ -13,28 +13,28 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
-    contactService
+    personService
       .getAll()
       .then(initialPersons => {
         setPersons(initialPersons)
       })
   }, [])
 
-  const addContact = (event) => {
+  const addPerson = (event) => {
     event.preventDefault()
 
     const nameTrim = `${newName}`.replace(/\s+/g, ' ').trim();
     const nameFind = persons.find( ({ name }) => name === nameTrim );
       if (nameFind === undefined) {
-        const contactObject = {
+        const personObject = {
           name: nameTrim,
           number: newNumber,
         }
 
-        contactService
-          .create(contactObject)
-          .then(returnedContact => {
-            setPersons(persons.concat(returnedContact))
+        personService
+          .create(personObject)
+          .then(returnedPerson => {
+            setPersons(persons.concat(returnedPerson))
             setNewName('')
             setNewNumber('')
             setErrorMessage(
@@ -50,9 +50,9 @@ const App = () => {
         }
   }
 
-  const removeContact = (id, name) => {
+  const removePerson = (id, name) => {
     if (window.confirm(`Delete ${name}?`)) {
-      contactService.remove(id);
+      personService.remove(id);
       setPersons(persons.filter((person) => person.id !== id));
       setErrorMessage(
         `${name} has been deleted.`
@@ -63,7 +63,7 @@ const App = () => {
     }
   }
 
-  const contactsToShow = 
+  const personsToShow = 
     filter === ""
     ? persons
     : persons.filter(person =>
@@ -71,17 +71,17 @@ const App = () => {
       );
 
   return (
-    <div>
-      <h2>Phonebook</h2>
+    <div className='card'>
+      <h1>Phonebook</h1>
         <Notification message={errorMessage} />
         <Search setFilter={setFilter} />
       <h2>Add New</h2>
-        <NewContact addContact={addContact}
+        <NewPerson addPerson={addPerson}
           newName={newName} setNewName={setNewName}
           newNumber={newNumber} setNewNumber={setNewNumber}
         />
       <h2>Numbers</h2>
-        <Persons contacts={contactsToShow} removeContact={removeContact} />
+        <Persons persons={personsToShow} removePerson={removePerson} />
     </div>
   )
 }

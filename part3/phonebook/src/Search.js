@@ -1,6 +1,6 @@
 const Search = ({setFilter}) => {
     return (
-      <div>
+      <div className='inputs'>
         search: <input onChange={({target}) => setFilter(target.value)} />
       </div>
     )
