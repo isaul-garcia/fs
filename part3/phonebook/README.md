@@ -1,4 +1,4 @@
-# Phonebook Backend
+# Phonebook Frontend
 
 This is only the updated phonebook frontend.
 
