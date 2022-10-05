@@ -1,0 +1,14 @@
+.container {
+    width: 200px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.item {
+    display: block;
+}
+
+.link {
+    text-decoration: none;
+}

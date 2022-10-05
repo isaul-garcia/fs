@@ -1,0 +1,28 @@
+.blog {
+    border-radius: 5px;
+    background-color: #f3f3f3;
+    margin-bottom: 8px;
+    padding: 14px 18px;
+    display: block;
+    position: relative;
+    color: #000000;
+    border-bottom: 3px solid #ddd;
+    transition: 0.1s ease-in-out;
+}
+
+.blog:hover {
+    background-color: #eeeef2;
+    border-bottom: 3px solid #c4d3e6;
+    color: #0449bb;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.author {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.6;
+    display: block;
+}

@@ -1,0 +1,30 @@
+POST http://localhost:3001/api/blogs/ HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Health benefits of almonds",
+    "author": "Gloria del Mar",
+    "url": "https://health.com/article/1",
+    "likes": 5,
+    "userId": "62d71d6ed5ac7a95596e9c3d"
+}
+###
+POST http://localhost:3001/api/blogs/ HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI2MmQ3MWQ2ZWQ1YWM3YTk1NTk2ZTljM2QiLCJpYXQiOjE2NTgyNjg2MzZ9.D_TA4XgaCEbQ_DMbStQF4GR-Ld0a7tt4gxBANh_V5q8
+
+{
+    "title": "New device flawlesly reads cats mind",
+    "author": "Isabel Celestes",
+    "url": "https://incredible.com/article/8",
+    "likes": 324087
+}
+
+###
+POST  http://localhost:3003/api/blogs/633ba820e238f7c81e7416ed/comments
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImlzYXVsIiwiaWQiOiI2MzM0OTFkMDlmNTQ2OTA1YzdjYzk5NTIiLCJpYXQiOjE2NjQ4NTQ3MDcsImV4cCI6MTY2NDg1ODMwN30.8q9TIlsNYLPRyssAWvDNiKw4PaWDyAMYVaOBq-hAgWs
+
+{
+    "title": "cool"
+}
